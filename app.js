@@ -10,17 +10,11 @@ function getComputerChoice() {
     }
 }
 
-const computerSelection = getComputerChoice();
-
-console.log(computerSelection);
-
 function getPlayerChoice() {
     const choice = prompt("Choose rock, paper, or scissors:");
     return choice;
 }
 
-const playerSelection = getPlayerChoice();
-console.log(playerSelection);
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
@@ -36,7 +30,10 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-console.log(playRound("rock", "scissors"));
-console.log(playRound("paper", "rock"));
-console.log(playRound("scissors", "rock"));
-console.log(playRound("paper", "paper"));
+const playerSelection = getPlayerChoice();
+const computerSelection = getComputerChoice();
+
+console.log("Player chose:", playerSelection);
+console.log("Computer chose:", computerSelection);
+
+console.log(playRound(playerSelection, computerSelection));
