@@ -11,12 +11,32 @@ function getComputerChoice() {
 }
 
 function getPlayerChoice() {
-    const choice = prompt("Choose rock, paper, or scissors:");
-    return choice;
+    while (true) {
+        const choice = prompt("Choose rock, paper, or scissors:");
+
+        if (choice === null) {
+            alert("Please enter a choice to continue.");
+            continue;
+        }
+
+        const normalizedChoice = choice.trim().toLowerCase();
+
+        if (
+            normalizedChoice === "rock" ||
+            normalizedChoice === "paper" ||
+            normalizedChoice === "scissors"
+        ) {
+            return normalizedChoice;
+        }
+
+        alert("Invalid choice! Please enter rock, paper, or scissors.");
+    }
 }
 
 
 function playRound(playerSelection, computerSelection) {
+    playerSelection = playerSelection.toLowerCase();
+
     if (playerSelection === computerSelection) {
         console.log(`It's a tie! Both chose ${playerSelection}.`);
         return "tie";
