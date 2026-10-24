@@ -18,22 +18,42 @@ function getPlayerChoice() {
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
-        return "It's a tie!";
+        console.log(`It's a tie! Both chose ${playerSelection}.`);
+        return "tie";
     } else if (
         (playerSelection === "rock" && computerSelection === "scissors") ||
         (playerSelection === "paper" && computerSelection === "rock") ||
         (playerSelection === "scissors" && computerSelection === "paper")
     ) {
-        return `You win! ${playerSelection} beats ${computerSelection}.`;
+        console.log(`You win! ${playerSelection} beats ${computerSelection}.`);
+        return "win";
     } else {
-        return `You lose! ${computerSelection} beats ${playerSelection}.`;
+        console.log(`You lose! ${computerSelection} beats ${playerSelection}.`);
+        return "lose";
     }
 }
 
-const playerSelection = getPlayerChoice();
-const computerSelection = getComputerChoice();
+function playGame() {
+    let playerScore = 0;
+    let computerScore = 0;
 
-console.log("Player chose:", playerSelection);
-console.log("Computer chose:", computerSelection);
+    for (let i = 0; i < 5; i++) {
+        const playerSelection = getPlayerChoice();
+        const computerSelection = getComputerChoice();
 
-console.log(playRound(playerSelection, computerSelection));
+        const result = playRound(playerSelection, computerSelection);
+
+        if (result === "win") {
+            playerScore = playerScore + 1;
+        } else if (result === "lose") {
+            computerScore = computerScore + 1;
+        }
+
+        console.log(`Score — Player: ${playerScore}, Computer: ${computerScore}`);
+    }
+
+    console.log("Game over!");
+    console.log(`Final score — Player: ${playerScore}, Computer: ${computerScore}`);
+}
+
+playGame();
