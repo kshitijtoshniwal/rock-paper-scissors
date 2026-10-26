@@ -76,4 +76,63 @@ function playGame() {
     console.log(`Final score — Player: ${playerScore}, Computer: ${computerScore}`);
 }
 
-playGame();
+const rockButton = document.querySelector("#rock");
+
+rockButton.addEventListener("click", () => {
+    const computerSelection = getComputerChoice();
+    const result = playRound("rock", computerSelection);
+    if (result === "win") {
+        playerScore++;
+    } else if (result === "lose") {
+        computerScore++;
+    }
+
+    scoreDisplay.textContent =
+        `Player: ${playerScore} | Computer: ${computerScore}`;
+
+    resultDisplay.textContent =
+        `You chose rock. Computer chose ${computerSelection}. Result: ${result}.`;
+});
+
+const paperButton = document.querySelector("#paper");
+
+paperButton.addEventListener("click", () => {
+    const computerSelection = getComputerChoice();
+    const result = playRound("paper", computerSelection);
+    if (result === "win") {
+        playerScore++;
+    } else if (result === "lose") {
+        computerScore++;
+    }
+
+    scoreDisplay.textContent =
+        `Player: ${playerScore} | Computer: ${computerScore}`;
+    resultDisplay.textContent =
+        `You chose paper. Computer chose ${computerSelection}. Result: ${result}.`;
+});
+
+const scissorsButton = document.querySelector("#scissors");
+
+scissorsButton.addEventListener("click", () => {
+    const computerSelection = getComputerChoice();
+    const result = playRound("scissors", computerSelection);
+    if (result === "win") {
+        playerScore++;
+    } else if (result === "lose") {
+        computerScore++;
+    }
+
+    scoreDisplay.textContent =
+        `Player: ${playerScore} | Computer: ${computerScore}`;
+
+    resultDisplay.textContent =
+        `You chose scissors. Computer chose ${computerSelection}. Result: ${result}.`;
+});
+
+
+const resultDisplay = document.querySelector("#result");
+
+const scoreDisplay = document.querySelector("#score");
+
+let playerScore = 0;
+let computerScore = 0;
