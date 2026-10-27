@@ -82,13 +82,22 @@ rockButton.addEventListener("click", () => {
     const computerSelection = getComputerChoice();
     const result = playRound("rock", computerSelection);
     if (result === "win") {
-        playerScore++;
-    } else if (result === "lose") {
-        computerScore++;
-    }
+    playerScore++;
+} else if (result === "lose") {
+    computerScore++;
+}
 
-    scoreDisplay.textContent =
-        `Player: ${playerScore} | Computer: ${computerScore}`;
+scoreDisplay.textContent =
+    `Player: ${playerScore} | Computer: ${computerScore}`;
+
+if (playerScore === 5 || computerScore === 5) {
+    gameStatusDisplay.textContent =
+        playerScore === 5 ? "You won the game!" : "Computer won the game!";
+
+    rockButton.disabled = true;
+    paperButton.disabled = true;
+    scissorsButton.disabled = true;
+};
 
     resultDisplay.textContent =
         `You chose rock. Computer chose ${computerSelection}. Result: ${result}.`;
@@ -100,13 +109,22 @@ paperButton.addEventListener("click", () => {
     const computerSelection = getComputerChoice();
     const result = playRound("paper", computerSelection);
     if (result === "win") {
-        playerScore++;
-    } else if (result === "lose") {
-        computerScore++;
-    }
+    playerScore++;
+} else if (result === "lose") {
+    computerScore++;
+}
 
-    scoreDisplay.textContent =
-        `Player: ${playerScore} | Computer: ${computerScore}`;
+scoreDisplay.textContent =
+    `Player: ${playerScore} | Computer: ${computerScore}`;
+
+if (playerScore === 5 || computerScore === 5) {
+    gameStatusDisplay.textContent =
+        playerScore === 5 ? "You won the game!" : "Computer won the game!";
+
+    rockButton.disabled = true;
+    paperButton.disabled = true;
+    scissorsButton.disabled = true;
+}
     resultDisplay.textContent =
         `You chose paper. Computer chose ${computerSelection}. Result: ${result}.`;
 });
@@ -117,13 +135,22 @@ scissorsButton.addEventListener("click", () => {
     const computerSelection = getComputerChoice();
     const result = playRound("scissors", computerSelection);
     if (result === "win") {
-        playerScore++;
-    } else if (result === "lose") {
-        computerScore++;
-    }
+    playerScore++;
+} else if (result === "lose") {
+    computerScore++;
+}
 
-    scoreDisplay.textContent =
-        `Player: ${playerScore} | Computer: ${computerScore}`;
+scoreDisplay.textContent =
+    `Player: ${playerScore} | Computer: ${computerScore}`;
+
+if (playerScore === 5 || computerScore === 5) {
+    gameStatusDisplay.textContent =
+        playerScore === 5 ? "You won the game!" : "Computer won the game!";
+
+    rockButton.disabled = true;
+    paperButton.disabled = true;
+    scissorsButton.disabled = true;
+}
 
     resultDisplay.textContent =
         `You chose scissors. Computer chose ${computerSelection}. Result: ${result}.`;
@@ -136,3 +163,5 @@ const scoreDisplay = document.querySelector("#score");
 
 let playerScore = 0;
 let computerScore = 0;
+
+const gameStatusDisplay = document.querySelector("#game-status");
